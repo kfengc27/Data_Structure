@@ -1,0 +1,58 @@
+//
+//  main.cpp
+//  数据结构题集0
+//
+//  Created by kfengc27 on 14/11/30.
+//  Copyright (c) 2014年 Kevin Feng. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+
+struct cpxNum{
+    float real;
+    float imag;
+};
+
+cpxNum cplus(const cpxNum &a,const cpxNum &b){
+    cpxNum result;
+    result.real=a.real+b.real;
+    result.imag=a.imag+b.imag;
+    return result;
+}
+
+
+cpxNum cmilus(const cpxNum a,const cpxNum b){
+    cpxNum result;
+    result.imag=a.imag-b.imag;
+    result.real=a.real-b.real;
+    return result;
+    
+}
+
+cpxNum cmultiply(const cpxNum a,const cpxNum b){
+    cpxNum(result);
+    result.imag=a.imag*b.real+a.real+b.imag;
+    result.real=a.real*b.real-a.imag*b.imag;
+    return result;
+}
+
+cpxNum cdivide(const cpxNum &a,const cpxNum &b){
+    cpxNum result;
+    const int base_num=pow(b.real, 2)+pow(b.imag, 2);
+    result.real=(a.real*b.real+a.imag*b.imag)/base_num;
+    result.imag=(a.imag*b.real-a.real*b.imag)/base_num;
+    return result;
+
+}
+
+void print(cpxNum c){
+    std::cout<<"经计算得出的结果是：";
+    std::cout<<c.real<<"+"<<c.imag<<"i";
+    std::cout<<"\n感谢您的和使用!";
+}
+
+void assign(cpxNum *c,float _real,float _imag){
+    c->real=_real;
+    c->imag=_imag;
+}
